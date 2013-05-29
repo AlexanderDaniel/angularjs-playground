@@ -2,9 +2,11 @@
 
 /* Controllers */
 
-function PhoneListCtrl($scope, Phone) {
-  $scope.phones = Phone.query();
-  $scope.orderProp = 'age';
+function PhoneListCtrl($scope, Phone, GitHubRepos) {
+  $scope.gitHubRepos = function() {
+    console.log('howdy!')
+//    $scope.repos = GitHubRepos.get({keyword: 'scala'})
+  }
 }
 
 //PhoneListCtrl.$inject = ['$scope', 'Phone'];

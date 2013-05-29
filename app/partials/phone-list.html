@@ -1,27 +1,44 @@
 <div class="container-fluid">
   <div class="row-fluid">
-    <div class="span2">
-      <!--Sidebar content-->
+    <div class="span3">
+      <form name="myForm">
+        <div class="control-group" ng-class="{error: myForm.name.$invalid}">
+          <label>Name</label>
+          <input type="text" name="name" ng-model="project.name" required ng-minlength="3" autofocus>
+          <span ng-show="myForm.name.$error.required" class="help-inline">Required</span>
+        </div>
+        <div class="control-group" ng-class="{error: myForm.name2.$invalid}">
+          <label>Name</label>
+          <input type="text" name="name2" ng-model="project.name2" required ng-minlength="3">
+          <span ng-show="myForm.name2.$error.required" class="help-inline">Required</span>
+        </div>
+      </form>
 
-      Search: <input ng-model="query">
-      Sort by:
-      <select ng-model="orderProp">
-        <option value="name">Alphabetical</option>
-        <option value="age">Newest</option>
-      </select>
 
+
+
+
+      <form name="ghForm" ng-submit="gitHubRepos()" novalidate>
+        <fieldset>
+          <legend>Repositories</legend>
+          <label>Keyword</label>
+          <input type="text" name="keyword" ng-model="keyword" ng-minlength="3" class="error">
+          <label>Keyword</label>
+          <input name="todo" ng-model="todo" ng-required="true" ng-minlength="3">
+        </fieldset>
+        <ul>
+          <li>valid: {{ghForm.$valid}}</li>
+          <li>invalid: {{ghForm.$invalid}}</li>
+          <li>pristine: {{ghForm.$pristine}}</li>
+          <li>dirty: {{ghForm.$dirty}}</li>
+        </ul>
+      </form>
     </div>
-    <div class="span10">
-      <!--Body content-->
 
-      <ul class="phones">
-        <li ng-repeat="phone in phones | filter:query | orderBy:orderProp" class="thumbnail">
-          <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
-          <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
-          <p>{{phone.snippet}}</p>
-        </li>
+    <div class="span9">
+      <ul>
+        <li>TODO</li>
       </ul>
-
     </div>
   </div>
 </div>
