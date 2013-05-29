@@ -1,4 +1,12 @@
-# Links
+# AngularJS Playground
+The project is based on [AngularJS tutorial][angjstut].
+
+  [angjstut]: http://docs.angularjs.org/tutorial
+
+## Running
+`node scripts/web-server.js` and then point your browser to http://localhost:8000/app/index.html
+
+## Links
 - http://developer.github.com/v3/search/#search-repositories
 
 Issue `Request header field X-XSRF-TOKEN is not allowed by Access-Control-Allow-Headers` when accessing GitHub repo search

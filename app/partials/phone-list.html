@@ -1,31 +1,16 @@
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span3">
-      <form name="myForm">
-        <div class="control-group" ng-class="{error: myForm.name.$invalid}">
-          <label>Name</label>
-          <input type="text" name="name" ng-model="project.name" required ng-minlength="3" autofocus>
-          <span ng-show="myForm.name.$error.required" class="help-inline">Required</span>
-        </div>
-        <div class="control-group" ng-class="{error: myForm.name2.$invalid}">
-          <label>Name</label>
-          <input type="text" name="name2" ng-model="project.name2" required ng-minlength="3">
-          <span ng-show="myForm.name2.$error.required" class="help-inline">Required</span>
-        </div>
-      </form>
-
-
-
-
-
       <form name="ghForm" ng-submit="gitHubRepos()" novalidate>
-        <fieldset>
-          <legend>Repositories</legend>
+        <div class="control-group" ng-class="{error: ghForm.keyword.$invalid}">
           <label>Keyword</label>
-          <input type="text" name="keyword" ng-model="keyword" ng-minlength="3" class="error">
-          <label>Keyword</label>
-          <input name="todo" ng-model="todo" ng-required="true" ng-minlength="3">
-        </fieldset>
+          <input type="text" name="keyword" ng-model="keyword" required ng-minlength="3" autofocus>
+        </div>
+        <div class="control-group" ng-class="{error: ghForm.todo.$invalid}">
+          <label>todo</label>
+          <input name="todo" ng-model="todo" required ng-minlength="2" ng-maxlength="2">
+        </div>
+
         <ul>
           <li>valid: {{ghForm.$valid}}</li>
           <li>invalid: {{ghForm.$invalid}}</li>
