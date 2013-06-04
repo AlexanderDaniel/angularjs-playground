@@ -2,11 +2,17 @@
 
 /* Controllers */
 
-function PhoneListCtrl($scope, Phone, GitHubRepos) {
+function NavCtrl($scope) {
+}
+
+function GitHubSearchCtrl($scope) {
   $scope.gitHubRepos = function() {
-    console.log('howdy!')
+    console.log('howdy!');
 //    $scope.repos = GitHubRepos.get({keyword: 'scala'})
   }
+}
+
+function PhoneListCtrl($scope, Phone, GitHubRepos) {
 }
 
 //PhoneListCtrl.$inject = ['$scope', 'Phone'];

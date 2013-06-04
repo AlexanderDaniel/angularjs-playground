@@ -1,10 +1,6 @@
 <div class="container-fluid">
   <div class="row-fluid">
-    <div class="span12">
-      <p>
-        Keyword has <code>ng-minlength="3"</code> and language has <code>ng-minlength="2"</code>
-        and <code>ng-maxlength="2"</code>.
-      </p>
+    <div class="span3">
       <form name="ghForm" ng-submit="gitHubRepos()" novalidate>
         <div class="control-group" ng-class="{error: ghForm.keyword.$invalid}">
           <label>Keyword</label>
@@ -12,16 +8,17 @@
         </div>
         <div class="control-group" ng-class="{error: ghForm.language.$invalid}">
           <label>language</label>
-          <input name="language" ng-model="language" required ng-minlength="2" ng-maxlength="2">
+          <input name="language" ng-model="language" required ng-minlength="2">
         </div>
-
-        <ul>
-          <li>valid: {{ghForm.$valid}}</li>
-          <li>invalid: {{ghForm.$invalid}}</li>
-          <li>pristine: {{ghForm.$pristine}}</li>
-          <li>dirty: {{ghForm.$dirty}}</li>
-        </ul>
+        <div>
+          <button type="submit" class="btn btn-primary" ng-disabled="ghForm.$invalid">Search</button>
+        </div>
       </form>
+    </div>
+    <div class="span9">
+      <ul>
+        <li>TODO</li>
+      </ul>
     </div>
   </div>
 </div>
