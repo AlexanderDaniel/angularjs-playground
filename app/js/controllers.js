@@ -3,6 +3,15 @@
 /* Controllers */
 
 function PhoneListCtrl($scope, Phone, GitHubRepos) {
+    $scope.colors = [
+	{id:1, name:'black', shade:'dark'},
+	{id:2, name:'white', shade:'light'},
+	{id:3, name:'red', shade:'dark'},
+	{id:4, name:'blue', shade:'dark'},
+	{id:5, name:'yellow', shade:'light'}
+    ];
+    $scope.color = 3;
+
   $scope.gitHubRepos = function() {
     console.log('howdy!')
 //    $scope.repos = GitHubRepos.get({keyword: 'scala'})
