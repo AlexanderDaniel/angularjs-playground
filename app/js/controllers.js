@@ -3,6 +3,8 @@
 /* Controllers */
 
 function PhoneListCtrl($scope, Phone, GitHubRepos) {
+    $scope.preference = 'color';
+
     $scope.colors = [
         {id: 1, name: 'black', shade: 'dark'},
         {id: 2, name: 'white', shade: 'light'},
@@ -11,6 +13,20 @@ function PhoneListCtrl($scope, Phone, GitHubRepos) {
         {id: 5, name: 'yellow', shade: 'light'}
     ];
     $scope.color = 3;
+
+    $scope.names = [
+        {id: 1, firstName: 'Alex'},
+        {id: 2, firstName: 'Martin'},
+        {id: 3, firstName: 'James'}
+    ];
+
+    $scope.$watch('preference', function(newValue) {
+       if (newValue==='name' && !$scope.name) {
+           console.log('Setting name to 1');
+           $scope.name = 1;
+       }
+    });
+
     $scope.isNumber = function (n) {
         return angular.isNumber(n);
     };
