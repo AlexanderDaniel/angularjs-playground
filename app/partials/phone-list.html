@@ -23,7 +23,8 @@
 	<div class="control-group">
 	  <label>select as label for value in array</label>
 	  <select name="color" ng-model="color" ng-options="c.id as c.name for c in colors"></select>
-	  <pre>{{color|json}}</pre>
+	  <pre>color: {{color|json}}</pre>
+      <pre>isNumber: {{isNumber(color)}}</pre>
 	</div>
 	<!--<div class="control-group">
 	  <label>Color groupBy example</label>
