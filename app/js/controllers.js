@@ -5,10 +5,11 @@
 function NavCtrl($scope) {
 }
 
-function GitHubSearchCtrl($scope) {
+function GitHubSearchCtrl($scope, GitHubRepos) {
   $scope.gitHubRepos = function() {
-    console.log('howdy!');
-//    $scope.repos = GitHubRepos.get({keyword: 'scala'})
+    $scope.repos = GitHubRepos.get({keyword: $scope.keyword}, function(data) {
+      $scope.repos = data.repositories;
+    })
   }
 }
 
@@ -30,3 +31,10 @@ function PhoneDetailCtrl($scope, $routeParams, Phone) {
 }
 
 //PhoneDetailCtrl.$inject = ['$scope', '$routeParams', 'Phone'];
+
+
+function NumberCtrl($scope) {
+  $scope.model = {
+    number: 1.23
+  }
+}

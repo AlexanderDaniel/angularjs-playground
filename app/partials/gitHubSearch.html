@@ -6,10 +6,6 @@
           <label>Keyword</label>
           <input type="text" name="keyword" ng-model="keyword" required ng-minlength="3" autofocus>
         </div>
-        <div class="control-group" ng-class="{error: ghForm.language.$invalid}">
-          <label>language</label>
-          <input name="language" ng-model="language" required ng-minlength="2">
-        </div>
         <div>
           <button type="submit" class="btn btn-primary" ng-disabled="ghForm.$invalid">Search</button>
         </div>
@@ -17,7 +13,9 @@
     </div>
     <div class="span9">
       <ul>
-        <li>TODO</li>
+        <li ng-repeat="repo in repos">
+          <a ng-href="{{repo.url}}">{{repo.url}}</a>
+        </li>
       </ul>
     </div>
   </div>
