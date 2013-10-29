@@ -1,18 +1,51 @@
 <div class="container-fluid">
-  <div class="row-fluid">
-    <div class="span12">
-      <p>
-        Keyword has <code>ng-minlength="3"</code> and language has <code>ng-minlength="2"</code>
-        and <code>ng-maxlength="2"</code>.
-      </p>
-      <form name="ghForm" ng-submit="gitHubRepos()" novalidate>
-        <div class="control-group" ng-class="{error: ghForm.keyword.$invalid}">
-          <label>Keyword</label>
-          <input type="text" name="keyword" ng-model="keyword" required ng-minlength="3" autofocus>
+    <div class="row-fluid">
+        <div class="span3">
+            <form name="ghForm" ng-submit="gitHubRepos()" novalidate>
+                <div class="control-group" ng-class="{error: ghForm.keyword.$invalid}">
+                    <label>Keyword</label>
+                    <input type="text" name="keyword" ng-model="keyword" required ng-minlength="3" autofocus>
+                </div>
+                <div class="control-group" ng-class="{error: ghForm.todo.$invalid}">
+                    <label>todo</label>
+                    <input name="todo" ng-model="todo" required ng-minlength="2" ng-maxlength="2">
+                </div>
+
+                <ul>
+                    <li>valid: {{ghForm.$valid}}</li>
+                    <li>invalid: {{ghForm.$invalid}}</li>
+                    <li>pristine: {{ghForm.$pristine}}</li>
+                    <li>dirty: {{ghForm.$dirty}}</li>
+                </ul>
+            </form>
+
+            <form name="selectForm" novalidate>
+                <div class="control-group">
+                    <label>select as label for value in array</label>
+                    <select name="preference" ng-model="preference">
+                        <option>color</option>
+                        <option>name</option>
+                    </select>
+
+                    <div ng-show="preference=='color'">
+                        <select name="color" ng-model="color" ng-options="c.id as c.name for c in colors"></select>
+                    </div>
+                    <div ng-show="preference=='name'">
+                        <select name="name" ng-model="name"
+                                ng-options="obj.id as obj.firstName for obj in names"></select>
+                    </div>
+                    <pre>color: {{color|json}} • isNumber: {{isNumber(color)}}</pre>
+                    <pre>name: {{name|json}} • isNumber: {{isNumber(name)}}</pre>
+                </div>
+                <!--<div class="control-group">
+                  <label>Color groupBy example</label>
+                  <select name="colorGroupBy" ng-model="color" ng-options="c.name group by c.shade for c in colors"></select>
+                </div>-->
+            </form>
         </div>
-        <div class="control-group" ng-class="{error: ghForm.language.$invalid}">
-          <label>language</label>
-          <input name="language" ng-model="language" required ng-minlength="2" ng-maxlength="2">
+        <div class="control-group" ng-class="{error: ghForm.todo.$invalid}">
+          <label>todo</label>
+          <input name="todo" ng-model="todo" required ng-minlength="2" ng-maxlength="2">
         </div>
 
         <ul>
@@ -22,6 +55,12 @@
           <li>dirty: {{ghForm.$dirty}}</li>
         </ul>
       </form>
+    </div>
+
+    <div class="span9">
+      <ul>
+        <li>TODO</li>
+      </ul>
     </div>
   </div>
 </div>
