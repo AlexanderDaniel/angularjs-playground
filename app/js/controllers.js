@@ -2,6 +2,9 @@
 
 /* Controllers */
 
+function NavCtrl($scope) {
+}
+
 function PhoneListCtrl($scope, Phone, GitHubRepos) {
     $scope.preference = 'color';
 
